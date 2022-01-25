@@ -15,8 +15,10 @@ class UrlController extends Controller
     {   
         // $urls = auth()->user()->urls;
 
-        $urls = Url::orderBy('created_at','desc')->get();
-        // dd($urls);
+        $urls = Url::where('user_id',auth()->user()->id)
+                ->orderBy('created_at','desc')
+                ->get();
+        
         return response()->json([
             'success' => true,
             'data' => $urls
