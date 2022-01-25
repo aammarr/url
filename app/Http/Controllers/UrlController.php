@@ -78,14 +78,21 @@ class UrlController extends Controller
     public function update(Request $request, $id)
     {
         $url = auth()->user()->urls()->find($id);
- 
+
         if (!$url) {
             return response()->json([
                 'success' => false,
                 'message' => 'Url with id ' . $id . ' not found'
             ], 400);
         }
- 
+        
+        if($this->validateUrlFormat($request->main_url) == false){
+            return response()->json([
+                'success' => false,
+                'message' => 'URL does not have a valid format.'
+            ], 500);
+        }
+        
         $updated = $url->fill($request->all())->save();
  
         if ($updated)
@@ -125,7 +132,7 @@ class UrlController extends Controller
     }
 
     protected function validateUrlFormat($url){
-        return filter_var($url, FILTER_VALIDATE_URL, FILTER_FLAG_HOST_REQUIRED);
+        return filter_var($url, FILTER_VALIDATE_URL);
     }
 
     protected function createShortCode($url){
