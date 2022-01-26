@@ -49,6 +49,15 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[Lendio](https://lendio.com)**
 - **[Romega Software](https://romegasoftware.com)**
 
+## Usage
+
+1. Clone/Download a repo.
+2. Copy `.env.example` file to `.env` & Setup your environment variables
+3. Run `composer install`
+4. Generate application key by running `php artisan key:generate`
+5. Run Migrations `php artisan migrate`
+6. Generate Passport key for auth `php artisan passport:install`
+
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
