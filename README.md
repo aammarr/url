@@ -57,6 +57,7 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 4. Generate application key by running `php artisan key:generate`
 5. Run Migrations `php artisan migrate`
 6. Generate Passport key for auth `php artisan passport:install`
+7. Run Local Php Server by `php artisan serve`
 
 ## Contributing
 
